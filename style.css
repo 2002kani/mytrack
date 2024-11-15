@@ -1,0 +1,913 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: lexend;
+    box-sizing: border-box;
+}
+
+body{
+    background: #0c0c0e;
+    color: #fff;
+}
+
+.ladebildschirm{
+    cursor: pointer;
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ladebildschirm .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ladebildschirm .main::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 4px solid transparent;
+    border-top: 4px solid #7878d6;
+    border-radius: 50%;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.ladebildschirm .main h1 {
+    font-size: 70px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInSlideDown 1s ease forwards;
+}
+
+.ladebildschirm .main h1 span{
+    color: #7878d6;
+}
+
+.ladebildschirm .main h3 {
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideDown 1.2s ease forwards;
+}
+
+.ladebildschirm p{
+    position: relative;
+    top: 260px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInSlideDown 1s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.webseite{
+    display: none;
+}
+
+.hamburger{
+    display: none;
+}
+
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background: #18181c;
+    padding: 20px;
+    padding-top: 60px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo h3{
+    text-align: center;
+    font-size: 25px;
+    cursor: default;
+}
+
+.logo h3 span{
+    color: #7878d6;
+}
+
+.sidebar .features{
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.sidebar .features i{
+    font-size: 18px;
+    margin-right: 7px;
+    color: #7878d6;
+}
+
+.sidebar .features p{
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 10px;
+    display: flex;
+    color: #dbdbdb;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+}
+
+.sidebar .features p:hover{
+    background: #7878d6;
+    transition: 0.2s ease;
+}
+
+.sidebar .features p:active{
+    background: #8888da;
+}
+
+.sidebar .features p:hover i{
+    color: #dbdbdb;
+    transition: 0.2s ease;
+}
+
+.sidebar .features span{
+    width: 150px;
+    border: 0.1px solid #dbdbdb;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.sidebar .features p.aktiv{
+    background: #7878d6;
+}
+
+.sidebar .features p.aktiv i{
+    color: #dbdbdb;
+}
+
+.kalender-section{
+    display: block;
+}
+
+.kalender-section .headline{
+    margin: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: default;
+    background: #18181c;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.kalender-container{
+    width: 70vw;
+    margin: 5vw;
+    height: 480px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kalender-container .kalender{
+    width: 50%;
+}
+
+.kalender-container .monatsAnzeige{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.monatsAnzeige .datum{
+    cursor: default;
+}
+
+.monatsAnzeige i{
+    cursor: pointer;
+}
+
+.monatsAnzeige i:hover{
+    color: #7878d6;
+}
+
+.kalender .wochentage{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    cursor: default;
+    gap: 18px;
+}
+
+.kalender-tage{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background: #18181c;
+    border-radius: 10px;
+}
+
+.kalender-tage .tag{
+    width: 14.28%;
+    height: 70px; /*82*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.kalender-tage .tag.aktiv{
+    background: #7878d6;
+    border-radius: 5px;
+}
+
+.kalender-tage .tag:hover{
+    background: #7878d6;
+    transition: 0.15s;
+    border-radius: 5px;
+}
+
+.kalender-tage .tag:active{
+    background: #7f7fbd;
+}
+
+.kalender-tage .tag.alt{
+    color: #b3b3b3;
+    cursor: default;
+}
+
+.kalender-tage .tag.alt:hover{
+    cursor: default;
+    background: transparent;
+}
+
+.kalender-tage .tag.heute{
+    border-radius: 5px;
+    font-size: 26px;
+    color: #7878d6;
+}
+
+.kalender-tage .tag.heute.aktiv{
+    color: #fff;
+}
+
+.kalender-tage .tag.heute:hover{
+    color: #fff;
+}
+
+.kalender-tage .tag.neu{
+    color: #b3b3b3;
+    cursor: default;
+}
+
+.kalender-tage .tag.event{
+    position: relative;
+}
+
+.kalender-tage .tag.event::after{
+    position: absolute;
+    content: "";
+    bottom: 10%;
+    left: 50%;
+    width: 75%;
+    height: 6px;
+    border-radius: 30px;
+    transform: translateX(-50%);
+    background-color: #7878d6;
+}
+
+.kalender-tage .tag.event:hover::after{
+    background-color: #fff;
+}
+
+.kalender-tage .tag.neu:hover{
+    cursor: default;
+    background: transparent;
+}
+
+.events{
+    width: 42%;
+    background: #18181c;
+    border-radius: 10px;
+    padding: 0px;
+    position: relative; 
+}
+
+.events .datumAnzeige{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.events .datumAnzeige h3{
+    font-size: 25px;
+}
+
+.events .datumAnzeige p{
+    font-size: 1vw;
+    font-weight: 300;
+    color: #dbdbdb;
+}
+
+.events .event{
+    padding: 15px;
+}
+
+.events .event:nth-child(even){
+    background: #1b1b1f;
+}
+
+.events .event .eventHeader{
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.event .eventHeader .eventNotiz{
+    font-size: 15px;
+}
+
+.event .eventZeit{
+    font-weight: 300;
+    font-size: 12px;
+    color: #dbdbdb;
+}
+
+.event .eventHeader i{
+    font-size: 7px;
+    display: flex;
+    align-items: center;
+    color: #7878d6;
+    margin-right: 10px;
+}
+
+.events .button-part{
+    display: flex;
+    justify-content: space-between;
+}
+
+.events .remove-event{
+    cursor: pointer;
+}
+
+.events .remove-event:hover{
+    transform: scale(1.2);
+    transition: 0.25s ease;
+}
+
+.events .eventHinzufügen{
+    position: absolute;
+    bottom: 13px;
+    right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.events .eventHinzufügen i{
+    font-size: 4vh;
+    cursor: pointer;
+}
+
+.eventHinzufügen.schließen{
+    transform: rotate(45deg);
+}
+
+.events .event-popup{
+    background: #fff;
+    color: #383838;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 30vh;
+    margin: 30px;
+    margin-top: 90px;
+    opacity: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    opacity: 0;
+    padding: 20px 5px 20px 5px;
+    z-index: 10;
+}
+
+.event-popup.zeige-popup{
+    display: flex;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.events .event-popup .popup-header h3{
+    margin: 15px 15px 25px 15px;
+}
+
+.events .event-popup .popup-header h3 span{
+    color: #7878d6;
+}
+
+.events .event-popup .popup-notiz input{
+    padding: 5px;
+    width: 23vh;
+}
+
+.events .event-popup .popup-uhrzeit{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.events .event-popup .add-button{
+    padding: 5px;
+    width: 23vh;
+    background: none;
+    border: 2.5px solid #7878d6;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #7878d6;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.events .event-popup .add-button:hover{
+    transform: scale(1.02);
+    transition: 0.15s;
+}
+
+.erinnerungen-section{
+    display: none;
+}
+
+.erinnerungen-section .headline{
+    margin: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: default;
+    background: #18181c;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.erinnerungen-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.stats-container{
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 40px;
+    background: #18181c;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.stats-container .linke-seite h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 13px;
+    background: #09090a;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.progress{
+    background: #7878d6;
+    height: 13px;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.rechte-seite .fertige-zahlen{
+    font-size: 30px;
+    border-radius: 50%;
+    background: #7878d6;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#erinnerung-input{
+    width: 565px;
+    height: 40px;
+    background: #18181c;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.erinnerungen-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-container{
+    display: flex;
+    gap: 10px;
+}
+
+#input-btn{
+    width: 40px;
+    height: 40px;
+    background: #18181c;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#input-btn:active{
+    background: #232329;
+}
+
+.erinnerung-liste{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.erinnerung-liste li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #18181c;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.erinnerung-liste i, input{
+    cursor: pointer;
+}
+
+.erinnerung-liste i{
+    color: #7878d6;
+    margin-left: 10px;
+}
+
+.erinnerung-liste i:active{
+    color: #9090de;
+}
+
+.erinnerung-liste li input{
+    height: 18px;
+    width: 18px;
+}
+
+.einstellung-section{
+    display: none;
+}
+
+.einstellung-section .headline{
+    margin: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: default;
+    background: #18181c;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.einstellung-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.einstellung-text{
+    background: #18181c;
+    padding: 80px;
+    border-radius: 10px;
+    width: 65vw;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.einstellung-text p{
+    font-weight: 300;
+}
+
+.einstellung-text h1{
+    margin-bottom: 20px;
+}
+
+.notizen-section{
+    display: none;
+}
+
+.notizen-section .headline{
+    margin: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: default;
+    background: #18181c;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.notizen-container{
+    width: 70vw;
+    margin: 5vw;
+    height: 480px;
+    background: #18181c;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.notizen-sidebar{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notizen-sidebar button{
+    width: 100px;
+    height: 30px;
+    margin-bottom: 20px;
+    background: #7878d6;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.notizen-sidebar button:active{
+    background: #9090de;
+}
+
+.notiz-liste .notiz{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #7878d6;
+    padding-bottom: 10px;
+    cursor: pointer;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notiz-liste .notiz:hover{
+    background: #212127;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.notiz-liste .text-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.notiz-liste .notiz h3{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.notiz-liste .notiz p{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.notiz-liste .notiz button{
+    font-size: 12px;
+    background: #09090a;
+    padding-bottom: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.notiz-liste .notiz button:hover{
+    background: #383838;
+    transition: 0.20s;
+}
+
+.notizen-display{
+    width: 100%;
+    border-left: 1px solid #7878d6;
+}
+
+.notizen-display textarea{
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: #fff;
+    border: none;
+    resize: none;
+    padding: 12px;
+    font-size: 14px;
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        background: #18181c;
+    }
+
+    .logo{
+        padding-left: 10px;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        color: #dbdbdb;
+        font-size: 28px;
+        z-index: 1002;
+    }
+
+    .features {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        display: none;
+        background: #18181c;
+        flex-direction: column;
+        padding: 10px 0px 15px 10px;
+        z-index: 1000;
+    }
+    .features.show {
+        display: flex;
+    }
+
+    .features p {
+        padding: 10px 20px;
+        margin: 0;
+        text-align: center;
+    }
+
+    .sidebar .features p.aktiv{
+        background: #18181c;
+    }
+
+    .features span {
+        display: none;
+    }
+
+    .kalender-section .headline{
+        display: none;
+    }
+    .einstellung-section .headline{
+        display: none;
+    }
+    .notizen-section .headline{
+        display: none;
+    }
+    .erinnerungen-section .headline{
+        display: none;
+    }
+    .webseite{
+        margin-top: 70px;
+    }
+    .kalender-container{
+        width: 90vw;
+        margin: 5vw;
+        height: 480px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .kalender-container .kalender{
+        width: 100%;
+    }
+    .events{
+        width: 100%;
+        background: #18181c;
+        border-radius: 10px;
+        padding: 0px;
+        position: relative; 
+    }
+    .notizen-container{
+        width: 90vw;
+    }
+    .notizen-sidebar{
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .einstellung-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+    .einstellung-text{
+        background: #18181c;
+        padding: 40px;
+        border-radius: 10px;
+        width: 90vw;
+        margin-top: 100px;
+        text-align: center;
+    }
+    .erinnerungen-section{
+        margin: 10px;
+        width: 100%;
+        font-size: 25px;
+        font-weight: 400;
+        cursor: default;
+        background: #18181c;
+        padding: 20px;
+        border-radius: 12px;
+    }
+    .erinnerungen-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 5vw;
+        height: 50vw;
+        margin-top: 100px;
+    }
+    .stats-container{
+        margin-top: 35px;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 40px;
+        background: #18181c;
+        padding: 50px;
+        border-radius: 10px;
+    }
+    #erinnerung-input{
+        width: 565px;
+        height: 40px;
+        background: #18181c;
+        border: none;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .ladebildschirm .main::before {
+        width: 300px;
+        height: 300px;;
+    }
+    .ladebildschirm .main h1 {
+        font-size: 50px;
+    }
+    
+    .ladebildschirm .main h3 {
+        font-size: 12px;
+    }
+}

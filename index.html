@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> myTrack | Management Tool </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_left" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_right" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section class="ladebildschirm">
+        <div class="main">
+            <h1> <span>my</span>Track </h1>
+            <h3> Dein simples Management Tool </h3>
+        </div>
+        <p> *Klicken zum Starten* </p>
+    </section>
+
+    <section class="webseite">
+
+        <!-- Sidebar Section -->
+        <section class="sidebar">
+            <div class="logo"><h3> <span>my</span>Track </h3></div>
+
+            <div class="hamburger">
+                <i class="material-icons">menu</i>
+            </div>
+
+            <div class="features">
+                <p class="features-kalender aktiv"><i class="material-icons">today</i> Kalender </p>
+                <p class="features-erinnerungen"><i class="material-icons">notifications</i> Erinnerungen </p>
+                <p class="features-notizen"><i class="material-icons">notes</i> Notizen </p>
+                <span></span>
+                <p class="features-einstellung"><i class="material-icons">settings</i> Einstellungen </p>
+            </div>
+        </section>
+
+        <!-- Kalender Section -->
+        <section class="kalender-section">
+            <div class="headline"> Kalender </div>
+            
+            <div class="kalender-container">
+                <div class="kalender">
+                    <div class="monatsAnzeige">
+                        <i class="material-icons left">chevron_left</i>
+                            <div class="datum"></div>
+                        <i class="material-icons right">chevron_right</i>     
+                    </div>
+                    <div class="wochentage">
+                        <div> Mo </div>
+                        <div> Di </div>
+                        <div> Mi </div>
+                        <div> Do </div>
+                        <div> Fr </div>
+                        <div> Sa </div>
+                        <div> So </div>
+                    </div>
+                    <div class="kalender-tage">
+                        
+                    </div>
+                </div>
+    
+                <div class="events">
+                    <div class="datumAnzeige">
+                        <div class="tag"><h3></h3></div>
+                        <div class="picked-datum"><p></p></div>
+                    </div>
+
+                    <div class="eventAnzeige"></div>
+
+                    <div class="eventHinzufügen">
+                        <i class="material-icons">add_circle</i>
+                    </div>
+                    <div class="event-popup">
+                        <div class="popup-header">
+                            <h3> Erstelle ein <span>Event</span> </h3>
+                        </div>
+                        <div class="popup-notiz">
+                            <input type="text" placeholder="Event Notiz" id="eventNotiz">
+                        </div>
+                        <div class="popup-uhrzeit">
+                            <input type="time" id="anfangsZeit"> -
+                            <input type="time" id="endZeit">
+                        </div>
+                        <button class="add-button"> Hinzufügen </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Erinnerung Section -->
+        <section class="erinnerungen-section">
+            <div class="headline"> Erinnerungen </div>
+            <div class="erinnerungen-div">
+                <div class="stats-container">
+                    <div class="linke-seite">
+                        <h1> Gedanken </h1>
+                        <p> Notiere dir Dinge, die du nicht vergessen willst! </p>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="rechte-seite">
+                        <p class="fertige-zahlen"> 0 / 0 </p>
+                    </div>
+                </div>
+
+                <div class="erinnerungen-container">
+                    <div class="input-container">
+                        <input type="text" id="erinnerung-input" placeholder="Schreibe eine Erinnerung..." maxlength="30">
+                    <button id="input-btn"> + </button>
+                    </div>
+                    <ul class="erinnerung-liste">
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Einstellung Section -->
+        <section class="einstellung-section">
+            <div class="headline"> Einstellung </div>
+            <div class="einstellung-container">
+                <div class="einstellung-text">
+                    <h1> Keine Einstellungen Verfügbar.. </h1>
+                <p> Derzeit sind zu wenige Features möglich um diese anzupassen. Aus diesem Grund gibt es hier nichts zu sehen. Jedoch sind weitere Features in Planung.. ;-D</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notizen Section -->
+        <section class="notizen-section">
+            <div class="headline"> Notizen </div>
+            <div class="notizen-container">
+                <div class="notizen-sidebar">
+                    <button class="neue-notiz"> + hinzufügen </button>
+                    <div class="notiz-liste">
+                    </div>
+                </div>
+                <div class="notizen-display">
+                    <textarea placeholder="Gib hier deine Notiz ein.."></textarea>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
